@@ -1,1 +1,48 @@
-<!-- mail.html : contenu à insérer -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact - Mon Site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">Accueil</a> |
+        <a href="about.html">À propos</a> |
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <h1> Votre mail </h1>
+<div id="contactPopup" class="popup">
+  <div class="popup-content">
+  <form action="https://formsubmit.co/parfaitesaiegt@gmail.com" method="POST">
+  <input type="text" name="name" placeholder="Votre nom" required>
+  <input type="email" name="email" placeholder="Votre email" required>
+  <textarea name="message" placeholder="Votre message" required></textarea>
+
+  <!-- Protection contre les robots -->
+  <input type="hidden" name="_captcha" value="false">
+
+  <!-- Redirection après envoi -->
+  <input type="hidden" name="_next" value="https://serviceepgt.github.io/merci.html">
+<input type="text" name="_honey" style="display:none">
+
+  <button type="submit">Envoyer</button>
+</form>
+  </div>
+</main>
+<footer>
+  <p>&copy; 2025 GTPe- Tous droits réservés.</p>
+  <div class="footer-links">
+    <a href="contact.html">Contact</a> |
+    <a href="mentions.html">Mentions légales</a> |
+    <a href="https://facebook.com/ Parfait Esaie Ghassi Tankou"target="_blank">Facebook</a> |
+    <a href="https://t.me/237651041394" target="_blank">Telegram</a>
+  </div>
+</footer>
+</body>
+</html>
