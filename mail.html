@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Contact - Mon Site</title>
     <link rel="stylesheet" href="style.css">
-	<script src="https://unpkg.com/netlify-cms@latest/dist/netlify-cms.js"></script>
+    <script src="https://unpkg.com/netlify-cms@latest/dist/netlify-cms.js"></script>
 </head>
 <body>
 
@@ -17,33 +17,70 @@
 </header>
 
 <main>
-    <h1> Votre mail </h1>
-<div id="contactPopup" class="popup">
-  <div class="popup-content">
-  <form action="https://formsubmit.co/parfaitesaiegt@gmail.com" method="POST">
-  <input type="text" name="name" placeholder="Votre nom" required>
-  <input type="email" name="email" placeholder="Votre email" required>
-  <textarea name="message" placeholder="Votre message" required></textarea>
+    <h1>Contactez-moi par email</h1>
 
-  <!-- Protection contre les robots -->
-  <input type="hidden" name="_captcha" value="false">
+    <div id="contact-form">
+        <form action="https://formsubmit.co/parfaitesaiegt@gmail.com" method="POST">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" placeholder="Votre nom" required><br>
 
-  <!-- Redirection après envoi -->
-  <input type="hidden" name="_next" value="https://serviceepgt.github.io/merci.html">
-<input type="text" name="_honey" style="display:none">
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" placeholder="Votre email" required><br>
 
-  <button type="submit">Envoyer</button>
-</form>
-  </div>
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" placeholder="Votre message" required></textarea><br>
+
+            <!-- Protection contre les robots -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_honey" style="display:none">
+
+            <!-- Redirection après envoi -->
+            <input type="hidden" name="_next" value="https://serviceepgt.github.io/merci.html">
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
 </main>
+
 <footer>
-  <p>&copy; 2025 GTPe- Tous droits réservés.</p>
-  <div class="footer-links">
-    <a href="contact.html">Contact</a> |
-    <a href="mentions.html">Mentions légales</a> |
-    <a href="https://facebook.com/ Parfait Esaie Ghassi Tankou"target="_blank">Facebook</a> |
-    <a href="https://t.me/237651041394" target="_blank">Telegram</a>
-  </div>
+    <p>&copy; 2025 GTPe - Tous droits réservés.</p>
+    <div class="footer-links">
+        <a href="contact.html">Contact</a> |
+        <a href="mentions.html">Mentions légales</a> |
+        <a href="https://facebook.com/ParfaitEsaieGhassiTankou" target="_blank">Facebook</a> |
+        <a href="https://t.me/237651041394" target="_blank">Telegram</a>
+    </div>
 </footer>
+
+<!-- Script pour gérer le contenu dynamique via Netlify CMS -->
+<script>
+fetch('/pages/contact.json')
+    .then(response => response.json())
+    .then(data => {
+        let contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.innerHTML = `
+                <form action="https://formsubmit.co/${data.email}" method="POST">
+                    <label for="name">Nom :</label>
+                    <input type="text" id="name" name="name" placeholder="Votre nom" required><br>
+
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" placeholder="Votre email" required><br>
+
+                    <label for="message">Message :</label>
+                    <textarea id="message" name="message" placeholder="Votre message" required></textarea><br>
+
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_honey" style="display:none">
+                    <input type="hidden" name="_next" value="${data.redirect}">
+
+                    <button type="submit">Envoyer</button>
+                </form>
+            `;
+        }
+    })
+    .catch(error => console.error("Erreur de chargement des données :", error));
+</script>
+
 </body>
 </html>

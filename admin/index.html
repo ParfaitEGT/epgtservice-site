@@ -2,9 +2,26 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Netlify CMS</title>
 </head>
 <body>
+
+    <h1 style="text-align: center;">Panneau d'administration</h1>
+    <div id="cms">Chargement du CMS...</div> <!-- Conteneur pour le CMS -->
+
+    <script src="https://unpkg.com/react@^16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@^16/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/netlify-cms@latest/dist/netlify-cms.js"></script>
+
+    <script>
+        // Initialisation de Netlify CMS avec un message de chargement
+        document.getElementById('cms').innerText = "Initialisation du CMS...";
+        
+        CMS.init({
+            config: "/admin/config.yml"
+        });
+    </script>
+
 </body>
 </html>

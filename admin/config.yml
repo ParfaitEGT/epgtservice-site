@@ -1,21 +1,29 @@
 backend:
   name: git-gateway
   branch: main
-media_folder: "images"
+
+media_folder: "images"  # Emplacement où les médias seront stockés
+public_folder: "/images" # Emplacement public des images
+
 collections:
   - name: "avis"
     label: "Avis"
     folder: "avis"
     create: true
+    summary: "{{fields.nom}} - {{fields.date}}"
     fields:
       - { label: "Nom", name: "nom", widget: "string" }
       - { label: "Message", name: "message", widget: "markdown" }
       - { label: "Date", name: "date", widget: "datetime" }
+
   - name: "pages"
     label: "Pages"
     folder: "pages"
     create: true
+    editor:
+      preview: true
     fields:
       - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "Adresse URL de la page (ex: about, contact)" }
       - { label: "Contenu", name: "body", widget: "markdown" }
-      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Image", name: "image", widget: "image", required: false, hint: "Image associée à la page" }

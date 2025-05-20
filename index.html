@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <title>MonSite</title>
     <link rel="stylesheet" href="style.css">
-	<script src="https://unpkg.com/netlify-cms@latest/dist/netlify-cms.js"></script>
-	<script>
-    CMS.init({ config: "/admin/config.yml" });
-</script>
+    
+    <!-- Chargement de Netlify CMS -->
+    <script src="https://unpkg.com/netlify-cms@latest/dist/netlify-cms.js"></script>
+    
+    <script>
+        CMS.init({
+            config: "/admin/config.yml"
+        });
+    </script>
 </head>
 <body>
 
 <header>
     <nav>
         <a href="index.html">Accueil</a> |
-		<a href="about.html">À propos</a> |
-		<a href="contact.html">Contact</a> |
-		<a href="pages.html">>></a> |
-		    </nav>
+        <a href="about.html">À propos</a> |
+        <a href="contact.html">Contact</a> |
+        <a href="pages.html">>></a> |
+    </nav>
 </header>
 
 <main>
@@ -25,73 +30,41 @@
     <img src="https://images.unsplash.com/photo-1517054612019-1bf855127c43?ixlib=rb-0.3.5" alt="Bannière accueil" class="banner">
     <p>Ici, tu trouveras les meilleurs produits pour la santé, la beauté et la technologie mobile.</p>
 </main>
-<section id="products" style="padding: 40px; background-color: #eef7f5;">
-  <h2 style="text-align: center; color: #333;">Produits recommandés</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1000px; margin: auto;">
-    
-    <!-- Exemple de produit 1 -->
-    <div style="background-color: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); padding: 20px; width: 280px; text-align: center;">
-      <img src="https://www.iherb.com/images/products/now/now02183/v/30.jpg" alt="Vitamine C" style="width: 100%; border-radius: 10px;">
-      <h3 style="margin: 15px 0 10px;">Vitamine C 1000mg</h3>
-      <p style="font-size: 15px;">Renforce le système immunitaire, réduit la fatigue.</p>
-      <a href="https://www.iherb.com/some-affiliate-link" target="_blank" style="display: inline-block; margin-top: 10px; background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Voir le produit</a>
-    </div>
 
-    <!-- Exemple de produit 2 -->
-    <div style="background-color: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); padding: 20px; width: 280px; text-align: center;">
-      <img src="https://www.iherb.com/images/products/nat/nat01170/v/26.jpg" alt="Omega 3" style="width: 100%; border-radius: 10px;">
-      <h3 style="margin: 15px 0 10px;">Omega 3 – Huile de Poisson</h3>
-      <p style="font-size: 15px;">Bon pour le cœur et le cerveau. Soutient la santé globale.</p>
-      <a href="https://www.iherb.com/some-affiliate-link" target="_blank" style="display: inline-block; margin-top: 10px; background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Voir le produit</a>
-    </div>
-
-  </div>
-</section>
 <section id="actualite" style="padding: 40px; background-color: #f9f9f9;">
-  <h2 style="text-align: center; color: #222;">Dernières Actualités</h2>
-  <div style="max-width: 1000px; margin: auto; display: flex; flex-direction: column; gap: 20px;">
-
-    <!-- Actualité 1 -->
-    <article style="background: white; padding: 20px; border-left: 5px solid #4CAF50; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
-      <h3 style="margin-top: 0;">Lancement de mon site d'affiliation</h3>
-      <p>Je suis heureux de vous annoncer le lancement de mon site, dédié à l’affiliation dans les domaines de la santé, des cosmétiques, et de l’alimentation naturelle. Restez connectés !</p>
-      <small style="color: gray;">Publié le 28 Avril 2025</small>
-    </article>
-
-    <!-- Actualité 2 -->
-    <article style="background: white; padding: 20px; border-left: 5px solid #4CAF50; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
-      <h3 style="margin-top: 0;">Nouveaux produits iHerb disponibles</h3>
-      <p>J’ai ajouté une nouvelle sélection de produits de santé naturels iHerb sur le site. Découvrez-les dans la section "Produits recommandés".</p>
-      <small style="color: gray;">Publié le 27 Avril 2025</small>
-    </article>
-
-  </div>
+    <h2 style="text-align: center; color: #222;">Dernières Actualités</h2>
+    <div id="news-container"></div>
 </section>
 
-<section id="laisser-avis" style="padding: 40px; background-color: #f7f7f7;">
-  <h2 style="text-align: center; color: #333;">
-  <a href="avis.html">Laissez vôtre avis</a> </h2>
-
-  <section id="contact" class="contact-section">
-  <h2>Contactez-moi</h2>
-  <div class="contact-buttons">
-    <a href="https://wa.me/237651041394" class="btn whatsapp" target="_blank">WhatsApp</a>
-    <a href="https://t.me/EsaieGTParfait" class="btn telegram" target="_blank">Telegram</a>
-    <a href="https://facebook.com/Parfait Esaie Ghassi Tankou" class="btn facebook" target="_blank">Facebook</a>
-    <a href="mail.html" class="btn email">Email</a>
-  </div>
+<section id="avis" style="padding: 40px; background-color: #f7f7f7;">
+    <h2 style="text-align: center; color: #333;">Avis clients</h2>
+    <div id="avis-container"></div>
 </section>
+
 <footer>
-  <p>&copy; 2025 GTPe- Tous droits réservés.</p>
-  <div class="footer-links">
-    <a href="contact.html">Contact</a> |
-    <a href="mentions.html">Mentions légales</a> |
-    <a href="https://facebook.com/ Parfait Esaie Ghassi Tankou"target="_blank">Facebook</a> |
-    <a href="https://t.me/237651041394" target="_blank">Telegram</a>
-  </div>
+    <p>&copy; 2025 GTPe - Tous droits réservés.</p>
+    <div class="footer-links">
+        <a href="contact.html">Contact</a> |
+        <a href="mentions.html">Mentions légales</a> |
+        <a href="https://facebook.com/ParfaitEsaieGhassiTankou" target="_blank">Facebook</a> |
+        <a href="https://t.me/237651041394" target="_blank">Telegram</a>
+    </div>
 </footer>
 
-
+<!-- Script pour afficher dynamiquement les avis -->
+<script>
+    fetch('/avis.json')
+        .then(response => response.json())
+        .then(data => {
+            let avisContainer = document.getElementById('avis-container');
+            data.forEach(avis => {
+                let avisElement = document.createElement('div');
+                avisElement.innerHTML = `<strong>${avis.nom}</strong>: ${avis.message}`;
+                avisContainer.appendChild(avisElement);
+            });
+        })
+        .catch(error => console.error('Erreur de chargement des avis:', error));
+</script>
 
 </body>
 </html>

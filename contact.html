@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Contact - Mon Site</title>
     <link rel="stylesheet" href="style.css">
-	<script src="https://unpkg.com/netlify-cms@latest/dist/netlify-cms.js"></script>
+    <script src="https://unpkg.com/netlify-cms@latest/dist/netlify-cms.js"></script>
 </head>
 <body>
 
@@ -19,22 +18,46 @@
 
 <main>
     <h1>Contactez-moi</h1>
-<div id="contactPopup" class="popup">
-  <div class="popup-content">
-    <p><a href="https://t.me/"EsaieGTParfait" target="_blank">Telegram</a></p>
-    <p><a href="https://facebook.com/"Parfait Esaie Ghassi Tankou" target="_blank">Facebook</a></p>
-	<p><a href="https://wa.me/237651041394" target="_blank">Wathsapp</a></p>
-    <p><a href="mail.html">Envoyer un email</a></p>
-  </div>
+
+    <div id="contactPopup" class="popup">
+        <div class="popup-content">
+            <p><a href="https://t.me/EsaieGTParfait" target="_blank">Telegram</a></p>
+            <p><a href="https://facebook.com/ParfaitEsaieGhassiTankou" target="_blank">Facebook</a></p>
+            <p><a href="https://wa.me/237651041394" target="_blank">WhatsApp</a></p>
+            <p><a href="mail.html">Envoyer un email</a></p>
+        </div>
+    </div>
 </main>
+
 <footer>
-  <p>&copy; 2025 GTPe- Tous droits réservés.</p>
-  <div class="footer-links">
-    <a href="contact.html">Contact</a> |
-    <a href="mentions.html">Mentions légales</a> |
-    <a href="https://facebook.com/ Parfait Esaie Ghassi Tankou"target="_blank">Facebook</a> |
-    <a href="https://t.me/237651041394" target="_blank">Telegram</a>
-  </div>
+    <p>&copy; 2025 GTPe - Tous droits réservés.</p>
+    <div class="footer-links">
+        <a href="contact.html">Contact</a> |
+        <a href="mentions.html">Mentions légales</a> |
+        <a href="https://facebook.com/ParfaitEsaieGhassiTankou" target="_blank">Facebook</a> |
+        <a href="https://t.me/237651041394" target="_blank">Telegram</a>
+    </div>
 </footer>
+
+<!-- Script pour récupérer et afficher dynamiquement les informations de contact depuis Netlify CMS -->
+<script>
+fetch('/pages/contact.json')
+    .then(response => response.json())
+    .then(data => {
+        let contactPopup = document.getElementById('contactPopup');
+        if (contactPopup) {
+            contactPopup.innerHTML = `
+                <div class="popup-content">
+                    <p><a href="${data.telegram}" target="_blank">Telegram</a></p>
+                    <p><a href="${data.facebook}" target="_blank">Facebook</a></p>
+                    <p><a href="${data.whatsapp}" target="_blank">WhatsApp</a></p>
+                    <p><a href="${data.email}" target="_blank">Envoyer un email</a></p>
+                </div>
+            `;
+        }
+    })
+    .catch(error => console.error("Erreur de chargement des contacts :", error));
+</script>
+
 </body>
 </html>

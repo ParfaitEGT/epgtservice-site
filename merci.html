@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Merci pour votre message</title>
-  <script src="https://unpkg.com/netlify-cms@latest/dist/netlify-cms.js"></script>
-  <style>
-    body {
-      background-color: #f0f8ff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-    }
-    h1 {
-      color: #2c3e50;
-    }
-    p {
-      font-size: 18px;
-      color: #555;
-    }
-    a {
-      display: inline-block;
-      margin-top: 20px;
-      text-decoration: none;
-      color: white;
-      background-color: #3498db;
-      padding: 10px 20px;
-      border-radius: 5px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Merci pour votre message</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #3498db;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        // Redirection automatique après 5 secondes
+        setTimeout(function() {
+            window.location.href = "index.html";
+        }, 5000);
+    </script>
 </head>
 <body>
-  <h1>Merci pour votre message !</h1>
-  <p>Nous vous répondrons dans les plus brefs délais.</p>
-  <a href="index.html">Retour à l'accueil</a>
+
+    <h1>Merci pour votre message !</h1>
+    <p>Nous vous répondrons dans les plus brefs délais.</p>
+    <p>Vous serez automatiquement redirigé vers la page d'accueil dans 5 secondes.</p>
+    <a href="index.html">Retour à l'accueil</a>
+
 </body>
 </html>

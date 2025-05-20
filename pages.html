@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <title>MonSite</title>
     <link rel="stylesheet" href="style.css">
-	<script src="https://unpkg.com/netlify-cms@latest/dist/netlify-cms.js"></script>
+    <script src="https://unpkg.com/netlify-cms@latest/dist/netlify-cms.js"></script>
 </head>
 <body>
 
 <header>
     <nav>
         <a href="index.html">Accueil</a> |
-		<a href="page1.html">page1</a> |
-		<a href="page2.html">page2</a> |
-		<a href="paga3.html">page3</a> |
-		<a href="page4.html">page4</a> |
+        <a href="page1.html">Page 1</a> |
+        <a href="page2.html">Page 2</a> |
+        <a href="page3.html">Page 3</a> |
+        <a href="page4.html">Page 4</a> |
     </nav>
 </header>
 
@@ -22,15 +22,40 @@
     <h1>Bienvenue sur mon site d'affiliation !</h1>
     <img src="https://images.unsplash.com/photo-1517054612019-1bf855127c43?ixlib=rb-0.3.5" alt="Bannière accueil" class="banner">
     <p>Ici, tu trouveras les meilleurs produits pour la santé, la beauté et la technologie mobile.</p>
+    
+    <!-- Conteneur pour afficher les pages dynamiques -->
+    <section id="pages-container" style="padding: 40px; background-color: #f9f9f9;">
+        <h2 style="text-align: center; color: #222;">Autres pages</h2>
+        <div id="dynamic-pages"></div>
+    </section>
 </main>
+
 <footer>
-  <p>&copy; 2025 GTPe- Tous droits réservés.</p>
-  <div class="footer-links">
-    <a href="contact.html">Contact</a> |
-    <a href="mentions.html">Mentions légales</a> |
-    <a href="https://facebook.com/ Parfait Esaie Ghassi Tankou"target="_blank">Facebook</a> |
-    <a href="https://t.me/237651041394" target="_blank">Telegram</a>
-  </div>
+    <p>&copy; 2025 GTPe - Tous droits réservés.</p>
+    <div class="footer-links">
+        <a href="contact.html">Contact</a> |
+        <a href="mentions.html">Mentions légales</a> |
+        <a href="https://facebook.com/ParfaitEsaieGhassiTankou" target="_blank">Facebook</a> |
+        <a href="https://t.me/237651041394" target="_blank">Telegram</a>
+    </div>
 </footer>
+
+<!-- Script pour afficher les pages dynamiques -->
+<script>
+fetch('/pages.json')
+    .then(response => response.json())
+    .then(data => {
+        let pagesContainer = document.getElementById('dynamic-pages');
+        if (pagesContainer) {
+            data.forEach(page => {
+                let pageElement = document.createElement('p');
+                pageElement.innerHTML = `<a href="${page.url}">${page.title}</a>`;
+                pagesContainer.appendChild(pageElement);
+            });
+        }
+    })
+    .catch(error => console.error("Erreur de chargement des pages :", error));
+</script>
+
 </body>
 </html>
